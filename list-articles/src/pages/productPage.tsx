@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Button from "./components/button";
+import Button from "../components/common/button";
 
 // Définition du type Article
 type Article = {
@@ -17,7 +17,7 @@ const datas: Article[] = [
   { id: 5, nom: "Pantalon", prix: 8000, stock: 4 },
 ];
 
-export default function TestP() {
+function ProductPage() {
   const [articles, setArticles] = useState<Article[]>(() => {
     const stored = localStorage.getItem("articles");
     return stored ? (JSON.parse(stored) as Article[]) : datas;
@@ -201,6 +201,8 @@ export default function TestP() {
     </div>
   );
 }
+
+export default ProductPage;
 
 
 

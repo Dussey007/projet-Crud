@@ -1,26 +1,16 @@
 
+import { type JSX } from 'react'
 import './App.css'
 import './index.css'
 
-import TestP from './test'
+import ProductPage from './pages/productPage'
 
-
-
-
-function App() {
-
+function App(): JSX.Element {
   return (
-      <div>
-        <TestP />
-        
-
-      </div>
+    <div className="flex">
+      <ProductPage />
+    </div>
   )
 }
 
 export default App
-
-
-/*import { useState } from 'react'
-import TableList from './table'
-<TableList />*/

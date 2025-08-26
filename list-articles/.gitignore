@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-table.tsx
+./table.tsx
 
 # Editor directories and files
 .vscode/*
