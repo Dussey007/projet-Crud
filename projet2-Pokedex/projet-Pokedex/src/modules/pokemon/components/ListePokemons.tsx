@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import type { Pokemon } from "@/types/Pokemon";
 
 export const BASE_URL = "https://pokeapi.co/api/v2";
 
-type Pokemon = {
-  name: string;
-  url: string;
-};
-
-const Home: React.FC = () => {
+const ListePokemons: React.FC = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [currentPokemonId, setCurrentPokemonId] = useState<String>("")
-  const [currentPokemon, setCurrentPokemon] = useState<Pokemon>()
+  const [currentPokemonId, setCurrentPokemonId] = useState<string>("");
+  const [currentPokemon, setCurrentPokemon] = useState<Pokemon | undefined>(undefined);
   const [page, setPage] = useState(1); // page actuelle
   const limit = 20; // combien par page
 
@@ -25,9 +21,10 @@ const Home: React.FC = () => {
   }, [page]); // on recharge quand "page" change
 
 
-  useEffect(()=>{
-    pokemons[currentPokemonId]
-  },[currentPokemonId]);
+  useEffect(() => {
+    const found = pokemons.find((p) => p.name === currentPokemonId);
+    setCurrentPokemon(found);
+  }, [currentPokemonId, pokemons]);
 
   // Fonction pour extraire l’ID
   const getPokemonId = (url: string) => {
@@ -77,8 +74,24 @@ const Home: React.FC = () => {
           Suivant ➡️
         </button>
       </div>
+
+      {/** Détails du Pokémon sélectionné */}
+      <div className="w-80 h-100 m-20 bg-amber-800 rounded-2xl ">
+        {currentPokemon && (
+          <div className="p-4">
+            <h3 className="text-xl font-semibold text-white">
+              {currentPokemon.name}
+            </h3>
+            <img
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonId(currentPokemon.url)}.png`}
+              alt={currentPokemon.name}
+              className="w-32 h-32 mx-auto"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default ListePokemons;

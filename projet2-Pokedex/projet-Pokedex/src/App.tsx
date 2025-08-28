@@ -1,16 +1,11 @@
-import Front from "./pages/Front";
+import FrontLayout from "@/layout/FrontLayout";
 
 function App() {
-
   return (
-    <div className="Flexitems-center">   
-      <Front />
+    <div className="flex items-center">   
+      <FrontLayout />
     </div>
   );
 }
 
 export default App;
-
-
-
-
