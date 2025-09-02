@@ -1,34 +1,18 @@
-//How to use evenListener
-p1 = document.getElementById('p1');
-p3 = document.getElementById('p3');
-msg = document.getElementById('msg');
-vide = document.getElementById('vide');
-vide2 = document.getElementById('vide2');
+let b1 = document.getElementById('b1');
+let div1 = document.querySelector('div.d2');
+let b2 = document.getElementById('b2');
 
-if (p1.hasAttributes()) {
-    msg.textContent = 'p1 a un attribut!';
-} else {
-    msg.textContent = 'p1 n\'a pas d\'attribut';
+
+b1.onclick = function () { alert('boutton click') };
+
+function changeColor() {
+    this.style.backgroundColor = 'red';
 }
 
-p3.setAttribute('class', 'blue');
+//div1.onmouseover = function () { this.style.backgroundColor = 'red' };
+//div1.onmouseout = function () { this.style.backgroundColor = 'white' };
 
-if (p1.hasAttributes()) {
-    let attr = p1.attributes;
-    console.log(attr);
-    vide.innerHTML = 'Liste des attributs <br>';
-
-    for (let i = 0; i < attr.length; i++) {
-        vide.innerHTML += attr[i].name + '=' + attr[i].value + '<br>';
-    }
-}
-if (p1.hasAttributes()) {
-    let attri = p1.getAttributeNames();
-    vide2.innerHTML = 'lISTE DES ATTRIIBUTS <br>';
-
-    for (nom of attri) {
-        valeur = p1.getAttribute(nom);
-        vide2.innerHTML += nom + '=' + valeur;
-    }
-}
-
+b2.addEventListener('click', function () { alert('bouton click') });
+div1.addEventListener('mouseover', changeColor);
+div1.addEventListener('mouseout', function () { this.style.backgroundColor = 'white' });
+div1.removeEventListener('mouseover', changeColor);
