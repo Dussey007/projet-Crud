@@ -13,8 +13,18 @@ function infos() {
     let age = 19;
     function affiche() {
         return nom + 'est age de' + age + 'ans';
-    }
+    };
     return affiche();
 }
 
 alert(infos());
+
+function compteur() {
+    let count = 0;
+    return function () {
+        return count++;
+    };
+}
+let plusUn = compteur();
+alert(plusUn()); //0 
+alert(plusUn()); //0 
