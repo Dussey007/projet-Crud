@@ -14,7 +14,7 @@ function infos() {
     function affiche() {
         return nom + 'est age de' + age + 'ans';
     }
-    return affiche;
+    return affiche();
 }
 
 alert(infos());
