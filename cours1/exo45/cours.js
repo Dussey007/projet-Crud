@@ -13,10 +13,8 @@ async function test() {
     try {
         const test1 = await loadScript('boucle.js');
         alert(test1);
-        const test2 = await loadScript('blblbl.js');
+        const test2 = await loadScript('boucle2.js');
         alert(test2);
-        const test3 = await loadScript('cdcdcd.js');
-        alert(test3);
     } catch (err) {
         alert(err);
         let script = document.head.lastChild;
