@@ -8,6 +8,7 @@
       "@components/*": ["components/*"],
       "@types/*": ["types/*"],
       "@pokemon/*": ["modules/pokemon/*"]
+
     },
 
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
